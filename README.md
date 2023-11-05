@@ -6,4 +6,5 @@
 
 **Run:**
  - Clone repo: `git clone https://github.com/dineshkp/fighting-game.git`
- - `npm run dev`
+ - Run `npm install`
+ - Start the live-server `npm run dev`
