@@ -2,9 +2,9 @@
   "name": "fighting-game",
   "version": "1.0.0",
   "description": "A simple javascript fighting game",
-  "main": "index.js",
+  "main": "src/index.js",
   "scripts": {
-    "dev": "live-server"
+    "dev": "live-server ./src --wait=500"
   },
   "author": "DineshKumar P",
   "license": "ISC",
