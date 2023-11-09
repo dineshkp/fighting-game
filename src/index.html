@@ -14,15 +14,19 @@
 <div class="relative inline-block"> <!-- Container -->
     <div class="absolute flex w-full items-center p-5"> <!-- Inner container -->
         <div class="relative w-full h-8 flex justify-end"> <!-- Player health container -->
-            <div id="PlayerHealth" class="relative bg-blue-500 h-8 w-full z-10"></div> <!-- Player health -->
+            <div id="PlayerHealth" class="relative bg-blue-500 h-8 w-full z-10 font-bold text-right p-1 text-white">P1</div> <!-- Player health -->
             <div class="absolute bg-slate-600 w-full h-8 inset-0 z-0"></div>
         </div>
-        <div class="bg-green-500 shrink-0 w-28 h-28"></div> <!-- Score -->
+        <div id="Timer" class="bg-green-500 shrink-0 w-28 h-28 flex items-center justify-center">
+            10
+        </div> <!-- Timer -->
         <div class="relative w-full h-8 flex"> <!-- Enemy health container -->
-            <div id="EnemyHealth" class="relative bg-red-500 h-8 w-full z-10"></div> <!-- Enemy health -->
+            <div id="EnemyHealth" class="relative bg-red-500 h-8 w-full z-10 font-bold p-1 text-white">P2</div> <!-- Enemy health -->
             <div class="absolute bg-slate-600 w-full h-8 inset-0 z-0"></div>
         </div>
     </div>
+
+    <div id="Result" class="absolute text-white inset-0 items-center justify-center hidden">Tie</div><!-- Result -->
 
     <!-- Canvas for game display area -->
     <canvas></canvas>
