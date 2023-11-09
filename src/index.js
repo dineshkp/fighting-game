@@ -26,6 +26,7 @@ class Sprite {
             height: 50
         };
         this.isAttacking = false;
+        this.health = 100;
     }
 
     draw() {
@@ -153,6 +154,8 @@ function animate() {
         && player.isAttacking
     ) {
         player.isAttacking = false;
+        enemy.health -= 5;
+        document.querySelector('#EnemyHealth').style.width = enemy.health + "%";
         console.log('enemy takes dmg');
     }
 
@@ -164,6 +167,8 @@ function animate() {
         && enemy.isAttacking
     ) {
         enemy.isAttacking = false;
+        player.health -= 5;
+        document.querySelector('#PlayerHealth').style.width = player.health + "%";
         console.log('player takes dmg');
     }
 }
