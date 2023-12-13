@@ -1,7 +1,7 @@
 const canvas = document.querySelector('canvas');
 const c = canvas.getContext('2d');
 
-canvas.width = 800;
+canvas.width = 1024;
 canvas.height = 576;
 
 c.fillRect(0, 0, canvas.width, canvas.height);
@@ -14,6 +14,16 @@ const background = new Sprite({
     y: 0
   },
   imageSrc: './assets/images/background.png'
+});
+
+const shop = new Sprite({
+  position: {
+    x: 600,
+    y: 96
+  },
+  imageSrc: './assets/images/shop.png',
+  scale: 3,
+  framesMax: 6
 });
 
 const player = new Fighter({
@@ -54,6 +64,7 @@ function animate() {
   c.fillStyle = 'black';
   c.fillRect(0, 0, canvas.width, canvas.height);
   background.update();
+  shop.update();
   player.update();
   enemy.update();
 
