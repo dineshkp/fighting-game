@@ -31,7 +31,17 @@ const player = new Fighter({
     x: 0, y: 0
   }, velocity: {
     x: 0, y: 0
-  }, color: 'blue'
+  },
+  color: 'blue',
+  imageSrc: './assets/images/samuraiMack/Idle.png',
+  framesMax: 8,
+  framesElapsed: 0,
+  framesHold: 10,
+  scale: 2.5,
+  offset: {
+    x: 190,
+    y: 156
+  }
 }); // create player
 
 const enemy = new Fighter({
@@ -39,9 +49,16 @@ const enemy = new Fighter({
     x: 500, y: 0
   }, velocity: {
     x: 0, y: 0
-  }, offset: {
-    x: -50, y: 0
   },
+  imageSrc: './assets/images/kenji/Idle.png',
+  framesMax: 4,
+  framesElapsed: 0,
+  framesHold: 10,
+  scale: 2.5,
+  offset: {
+    x: -225,
+    y: 170
+  }
 }); // create enemy
 
 const keys = {
