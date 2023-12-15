@@ -1,5 +1,5 @@
 class Fighter extends Sprite {
-  constructor({position, velocity, color = 'red', offset = {x: 0, y: 0}, imageSrc, scale = 1, framesMax = 1, framesCurrent = 0, framesElapsed = 0, framesHold = 5}) {
+  constructor({position, velocity, color = 'red', offset = {x: 0, y: 0}, imageSrc, scale = 1, framesMax = 1, framesCurrent = 0, framesElapsed = 0, framesHold = 5, sprites = {}}) {
     super({
       position,
       offset,
@@ -23,6 +23,18 @@ class Fighter extends Sprite {
     };
     this.isAttacking = false;
     this.health = 100;
+    this.sprites = sprites;
+
+    this.generateSpriteImages();
+  }
+
+  generateSpriteImages() {
+    for (const sprite in this.sprites) {
+      this.sprites[sprite].image = new Image();
+      this.sprites[sprite].image.src = this.sprites[sprite].imageSrc;
+    }
+
+    console.log(this.sprites);
   }
 
   update() {
@@ -36,8 +48,10 @@ class Fighter extends Sprite {
     this.position.x += this.velocity.x;
     this.position.y += this.velocity.y;
 
+    // gravity compute
     if ((this.position.y + this.height + this.velocity.y) >= canvas.height - 96) {
       this.velocity.y = 0;
+      this.position.y = 330;
     } else {
       this.velocity.y += gravity;
     }
@@ -48,5 +62,13 @@ class Fighter extends Sprite {
     setTimeout(() => {
       this.isAttacking = false;
     }, 100)
+  }
+
+  switchSprites(action) {
+    if (this.image === this.sprites[action].image) return;
+
+    this.image = this.sprites[action].image;
+    this.framesMax = this.sprites[action].framesMax;
+    this.framesCurrent = 0;
   }
 }
